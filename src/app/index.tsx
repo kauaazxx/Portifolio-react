@@ -1,98 +1,112 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+import { View, Text, Image, TouchableOpacity, StyleSheet, Linking, StatusBar } from 'react-native';
 
 export default function HomeScreen() {
+  function abrirGitHub() {
+    Linking.openURL('https://github.com/kauaazxx');
+  }
+
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+      <View style={styles.menu}>
+        <Text style={styles.logo}>Meu Perfil</Text>
+        <Text style={styles.menuItem}>Home</Text>
+        <Text style={styles.menuItem}>Sobre</Text>
+        <Text style={styles.menuItem}>GitHub</Text>
+      </View>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+      <View style={styles.perfil}>
+        <Image
+          source={require('../../assets/images/minha-foto.jpg')}
+          style={styles.foto}
+        />
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+        <Text style={styles.nome}>Kauã Lucio</Text>
+
+        <Text style={styles.curso}>
+          Cursando SENAI-DS
+        </Text>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={abrirGitHub}
+        >
+          <Text style={styles.textoBotao}>
+            Meu GitHub
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#303030',
+    alignItems: 'center',
+  },
+
+  menu: {
+    width: '80%',
+    minHeight: 48,
+    backgroundColor: '#202124',
+    borderRadius: 30,
+    marginTop: 15,
+    paddingHorizontal: 20,
     flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
     alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
+    justifyContent: 'space-between',
   },
-  heroSection: {
+
+  logo: {
+    color: '#ffffff',
+    fontSize: 13,
+    fontWeight: 'bold',
+  },
+
+  menuItem: {
+    color: '#eeeeee',
+    fontSize: 11,
+  },
+
+  perfil: {
     alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+    marginTop: 58,
   },
-  title: {
-    textAlign: 'center',
+
+  foto: {
+    width: 124,
+    height: 220,
+    borderRadius: 12,
   },
-  code: {
-    textTransform: 'uppercase',
+
+  nome: {
+    color: '#ffffff',
+    fontSize: 23,
+    fontWeight: 'bold',
+    marginTop: 15,
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+
+  curso: {
+    color: '#eeeeee',
+    fontSize: 12,
+    marginTop: 10,
+  },
+
+  botao: {
+    backgroundColor: '#4998f5',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 6,
+    marginTop: 15,
+  },
+
+  textoBotao: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });

@@ -1,56 +1,125 @@
-# Welcome to your Expo app 👋
+# Meu Perfil — Expo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo de perfil pessoal desenvolvido com **React Native**, **Expo** e **TypeScript** como atividade de Desenvolvimento de Sistemas do SENAI.
 
-## Get started
+O projeto apresenta uma tela de perfil com foto, nome, curso e um botão para acessar o GitHub.
 
-1. Install dependencies
+## 🚀 Tecnologias Utilizadas
 
-   ```bash
-   npm install
-   ```
+* React Native
+* Expo
+* Expo Router
+* TypeScript
 
-2. Start the app
+## ✨ Funcionalidades
 
-   ```bash
-   npx expo start
-   ```
+* Exibição da foto de perfil.
+* Apresentação do nome do usuário.
+* Informação do curso SENAI-DS.
+* Botão para abrir o perfil do GitHub.
+* Interface com tema escuro.
+* Layout organizado e adaptado aos componentes do React Native.
 
-In the output, you'll find options to open the app in a
+## 📁 Estrutura do Projeto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+meu-portfolio/
+├── assets/
+│   └── images/
+│       └── minha-foto.jpg
+├── src/
+│   └── app/
+│       ├── _layout.tsx
+│       └── index.tsx
+├── package.json
+├── app.json
+├── tsconfig.json
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+**Observação:** a estrutura acima apresenta os principais arquivos utilizados no projeto. Outros arquivos e pastas podem existir dependendo da configuração inicial do Expo.
 
-### Other setup steps
+## ⚙️ Como Executar o Projeto
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+### 1. Pré-requisitos
 
-## Learn more
+Antes de começar, é necessário ter instalado:
 
-To learn more about developing your project with Expo, look at the following resources:
+* [Node.js](https://nodejs.org/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* npm, que é instalado junto com o Node.js.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 2. Clonar o repositório
 
-## Join the community
+No terminal, execute:
 
-Join our community of developers creating universal apps.
+```bash
+git clone URL_DO_SEU_REPOSITORIO
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Entre na pasta do projeto:
+
+```bash
+cd meu-portfolio
+```
+
+Substitua `URL_DO_SEU_REPOSITORIO` pelo endereço real do seu repositório no GitHub.
+
+### 3. Instalar as dependências
+
+Execute o comando:
+
+```bash
+npm install
+```
+
+### 4. Iniciar o Expo
+
+Execute:
+
+```bash
+npx expo start
+```
+
+Após iniciar o servidor, você poderá:
+
+* Pressionar `w` para abrir a versão web, caso o suporte web esteja configurado.
+* Pressionar `a` para abrir no emulador Android.
+* Escanear o QR Code com o aplicativo Expo Go para testar em um celular compatível.
+
+## 🖼️ Personalização
+
+A foto de perfil está localizada em:
+
+```text
+assets/images/minha-foto.jpg
+```
+
+Para utilizar outra imagem, basta substituir o arquivo, mantendo o mesmo nome e formato, ou atualizar o caminho da imagem no código.
+
+O nome, o curso e o endereço do GitHub podem ser alterados no arquivo:
+
+```text
+src/app/index.tsx
+```
+
+## 🔗 GitHub
+
+O botão **Meu GitHub** direciona para o perfil:
+
+[github.com/kauaazxx](https://github.com/kauaazxx)
+
+## 🎓 Objetivo da Atividade
+
+O objetivo deste projeto é praticar o desenvolvimento de interfaces com React Native e Expo, utilizando componentes, estilos, imagens e a abertura de links externos.
+
+A atividade também permite conhecer a organização de um projeto mobile e aprender a executar uma aplicação durante o desenvolvimento.
+
+## 👨‍💻 Autor
+
+**Kauã Lucio**
+
+Estudante de Desenvolvimento de Sistemas — SENAI-DS.
+
+GitHub: [@kauaazxx](https://github.com/kauaazxx)
+
